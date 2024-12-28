@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../presentation/resources/theme_manager.dart';
 
 class MyApp extends StatelessWidget {
 
@@ -10,6 +13,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      theme: getAppThemeDate(),
+    );
   }
 }

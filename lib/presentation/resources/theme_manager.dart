@@ -14,7 +14,8 @@ ThemeData getAppThemeDate() {
       appBarTheme: _appBarTheme(),
       buttonTheme: _buttonThemeData(),
       elevatedButtonTheme: _elevatedButtonThemeData(),
-      textTheme: _textTheme());
+      textTheme: _textTheme(),
+      inputDecorationTheme: _inputDecorationTheme());
 }
 
 CardTheme _cardTheme() {
@@ -65,4 +66,26 @@ TextTheme _textTheme() {
           fontSize: FontSize.size14, color: ColorManager.lightGrey),
       bodyMedium: getRegularTextStyle(color: ColorManager.grey),
       labelSmall: getRegularTextStyle(color: ColorManager.grey1));
+}
+
+InputDecorationTheme _inputDecorationTheme() {
+  return InputDecorationTheme(
+    hintStyle: getRegularTextStyle(
+        fontSize: FontSize.size14, color: ColorManager.grey),
+    labelStyle:
+        getMediumTextStyle(fontSize: FontSize.size14, color: ColorManager.grey),
+    errorStyle: getRegularTextStyle(color: ColorManager.errorRedColor),
+    enabledBorder: _outlineInputBorder(ColorManager.primaryColor),
+    focusedBorder: _outlineInputBorder(ColorManager.grey),
+    errorBorder: _outlineInputBorder(ColorManager.errorRedColor),
+    focusedErrorBorder: _outlineInputBorder(ColorManager.primaryColor),
+  );
+}
+
+OutlineInputBorder _outlineInputBorder(Color color) {
+  return OutlineInputBorder(
+      borderSide: BorderSide(color: color, width: AppSize.size1),
+      borderRadius: BorderRadius.all(
+        Radius.circular(AppSize.size8),
+      ));
 }

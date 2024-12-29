@@ -28,6 +28,7 @@ class FontSize{
   static const double size22 = 22.0;
 }
 class AppSize{
+  static const double size1 = 1.0;
   static const double size4 = 4.0;
   static const double size8 = 8.0;
   static const double size12 = 12.0;

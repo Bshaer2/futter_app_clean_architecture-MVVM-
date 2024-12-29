@@ -1,5 +1,5 @@
 
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 import 'package:tut_app/presentation/resources/fonts_manager.dart';
 

@@ -58,14 +58,15 @@ ElevatedButtonThemeData _elevatedButtonThemeData() {
 
 TextTheme _textTheme() {
   return TextTheme(
-      headlineLarge: getSemiBoldTextStyle(
-          fontSize: FontSize.size22, color: ColorManager.white),
-      titleMedium: getMediumTextStyle(
+      displayLarge: getSemiBoldTextStyle(
           fontSize: FontSize.size16, color: ColorManager.darkGrey),
-      titleSmall: getRegularTextStyle(
+      headlineLarge: getRegularTextStyle(
+          fontSize: FontSize.size14, color: ColorManager.darkGrey),
+      titleMedium: getRegularTextStyle(
           fontSize: FontSize.size14, color: ColorManager.lightGrey),
-      bodyMedium: getRegularTextStyle(color: ColorManager.grey),
-      labelSmall: getRegularTextStyle(color: ColorManager.grey1));
+      bodyLarge: getRegularTextStyle(color: ColorManager.grey),
+      labelSmall: getRegularTextStyle(
+          fontSize: FontSize.size16, color: ColorManager.primaryColor));
 }
 
 InputDecorationTheme _inputDecorationTheme() {

@@ -37,9 +37,9 @@ class ContactsResponse {
 
   ContactsResponse({this.phone, this.email, this.link});
 
-  factory ContactsResponse.fromJson (Map<String, dynamic> json)  =>(_$ContactResponseFromJson(json));
+  factory ContactsResponse.fromJson (Map<String, dynamic> json)  =>(_$ContactsResponseFromJson(json));
 
-  Map<String, dynamic> toJason ()  =>(_$ContactResponseToJson(this));
+  Map<String, dynamic> toJason ()  =>(_$ContactsResponseToJson(this));
 }
 
 @JsonSerializable()

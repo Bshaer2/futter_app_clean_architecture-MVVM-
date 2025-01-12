@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:tut_app/domain/models.dart';
+
+import 'package:tut_app/domain/models/models.dart';
 import 'package:tut_app/presentation/base_view_model/base_view_model.dart';
 
 import '../../resources/assets_manager.dart';
@@ -53,7 +54,7 @@ class OnboardingViewModel extends BaseViewModel
   Sink get inputSliderViewObject => _streamController.sink;
 
   @override
-  Stream <SliderViewObject> get outputSliderViewObject =>
+  Stream<SliderViewObject> get outputSliderViewObject =>
       _streamController.stream.map((sliderViewObject) => sliderViewObject);
 
   void _postDataToView() {
@@ -65,34 +66,31 @@ class OnboardingViewModel extends BaseViewModel
 
   List<SliderObject> _getSliderObjectList() => [
         SliderObject(
-            title: StringsManager.onBoardingTitle1,
-            subTitle: StringsManager.onBoardingSubTitle1,
+            title: AppStrings.onBoardingTitle1,
+            subTitle: AppStrings.onBoardingSubTitle1,
             image: ImageManager.onboardingLogo1),
         SliderObject(
-            title: StringsManager.onBoardingTitle2,
-            subTitle: StringsManager.onBoardingSubTitle2,
+            title: AppStrings.onBoardingTitle2,
+            subTitle: AppStrings.onBoardingSubTitle2,
             image: ImageManager.onboardingLogo2),
         SliderObject(
-            title: StringsManager.onBoardingTitle3,
-            subTitle: StringsManager.onBoardingSubTitle3,
+            title: AppStrings.onBoardingTitle3,
+            subTitle: AppStrings.onBoardingSubTitle3,
             image: ImageManager.onboardingLogo3),
         SliderObject(
-            title: StringsManager.onBoardingTitle4,
-            subTitle: StringsManager.onBoardingSubTitle4,
+            title: AppStrings.onBoardingTitle4,
+            subTitle: AppStrings.onBoardingSubTitle4,
             image: ImageManager.onboardingLogo4),
       ];
 }
 
 abstract mixin class OnboardingViewModelInputs {
   int showNextSliderPage();
-
   int showPreviousSliderPage();
-
   void onPageChanged(int index);
-
   Sink get inputSliderViewObject;
 }
 
 abstract mixin class OnboardingViewModelOutputs {
-  Stream <SliderViewObject> get outputSliderViewObject;
+  Stream<SliderViewObject> get outputSliderViewObject;
 }

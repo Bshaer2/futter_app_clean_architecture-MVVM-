@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tut_app/domain/models.dart';
+import 'package:tut_app/domain/models/models.dart';
 import 'package:tut_app/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:tut_app/presentation/resources/colors_manager.dart';
 import 'package:tut_app/presentation/resources/strings_manager.dart';
@@ -117,7 +117,7 @@ class _OnboardingViewState extends State<OnboardingView> {
 
   Text _textButtonText() {
     return Text(
-      StringsManager.skip,
+      AppStrings.skip,
       style: Theme.of(context).textTheme.labelSmall,
       textAlign: TextAlign.end,
     );
@@ -169,10 +169,10 @@ class _OnboardingViewState extends State<OnboardingView> {
   }
 
   Icon returnIcon(IconData? iconData) {
-    return  Icon(
-        iconData,
-        color: ColorManager.white,
-        size: AppSize.size12,
+    return Icon(
+      iconData,
+      color: ColorManager.white,
+      size: AppSize.size12,
     );
   }
 

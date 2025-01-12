@@ -1,5 +1,5 @@
 import 'package:tut_app/app/extensions.dart';
-import 'package:tut_app/domain/models.dart';
+import 'package:tut_app/domain/models/models.dart';
 
 import '../../data/responses/responses.dart';
 

@@ -6,6 +6,7 @@ import 'package:tut_app/presentation/resources/strings_manager.dart';
 import 'package:tut_app/presentation/splash/splash_view.dart';
 import 'package:tut_app/presentation/store_details/store_details_view.dart';
 
+import '../../app/dependency_injection.dart';
 import '../login/view/login_view.dart';
 import '../main/main_view.dart';
 
@@ -26,7 +27,7 @@ class RouteGenerator {
       case Routes.splashRoute: route = _buildMaterialPageRoute(SplashView());
       case Routes.mainRoute: route = _buildMaterialPageRoute(MainView());
       case Routes.onBoardingRoute: route = _buildMaterialPageRoute(OnboardingView());
-      case Routes.loginRoute: route = _buildMaterialPageRoute(LoginView());
+      case Routes.loginRoute: initLoginModule(); route = _buildMaterialPageRoute(LoginView());
       case Routes.registerRoute: route = _buildMaterialPageRoute(RegisterView());
       case Routes.forgerPasswordRoute: route = _buildMaterialPageRoute(ForgetPasswordView());
       case Routes.storeDetailsRoute: route = _buildMaterialPageRoute(StoreDetailsView());

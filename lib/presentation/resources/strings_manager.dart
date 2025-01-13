@@ -27,4 +27,14 @@ class AppStrings{
   static const String cacheError = "cache_error";
   static const String noInternetError = "no_internet_error";
 
+  //login view
+  static const String userName = "Username";
+  static const String password = "Password";
+  static const String userNameError = "please enter your user name";
+  static const String passwordError = "please enter your password";
+  static const String login = "Login";
+  static const String forgerPassword = "forget password";
+  static const String register = "Not a member ? Sign up";
+
+
 }

@@ -49,10 +49,11 @@ ElevatedButtonThemeData _elevatedButtonThemeData() {
     style: ElevatedButton.styleFrom(
         textStyle: getRegularTextStyle(
             fontSize: FontSize.size17, color: ColorManager.white),
-        foregroundColor: ColorManager.primaryColor,
+        foregroundColor: ColorManager.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSize.size12),
-        )),
+        ),
+    backgroundColor:ColorManager.primaryColor ),
   );
 }
 
@@ -76,8 +77,8 @@ InputDecorationTheme _inputDecorationTheme() {
     labelStyle:
         getMediumTextStyle(fontSize: FontSize.size14, color: ColorManager.grey),
     errorStyle: getRegularTextStyle(color: ColorManager.errorRedColor),
-    enabledBorder: _outlineInputBorder(ColorManager.primaryColor),
-    focusedBorder: _outlineInputBorder(ColorManager.grey),
+    enabledBorder: _outlineInputBorder(ColorManager.grey),
+    focusedBorder: _outlineInputBorder(ColorManager.primaryColor),
     errorBorder: _outlineInputBorder(ColorManager.errorRedColor),
     focusedErrorBorder: _outlineInputBorder(ColorManager.primaryColor),
   );

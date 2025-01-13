@@ -14,6 +14,9 @@ class AppPadding{
   static const double padding16 = 16.0;
   static const double padding18 = 18.0;
   static const double padding20 = 20.0;
+  static const double padding28 = 28.0;
+  static const double padding100 = 100.0;
+  static const double padding200 = 200.0;
 }
 
 class FontSize{
@@ -38,7 +41,9 @@ class AppSize{
   static const double size17 = 17.0;
   static const double size18 = 18.0;
   static const double size20 = 20.0;
+  static const double size28 = 28.0;
   static const double size40 = 40.0;
+  static const double size50 = 50.0;
   static const double size60 = 60.0;
   static const double size200 = 200.0;
 }

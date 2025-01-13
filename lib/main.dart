@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'app/app.dart';
+import 'app/dependency_injection.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    WidgetsFlutterBinding.ensureInitialized();
+    initAppModule();
     return TutApp();
   }
 }

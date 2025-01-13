@@ -54,7 +54,66 @@ class _OnboardingViewState extends State<OnboardingView> {
         backgroundColor: ColorManager.white,
         appBar: _buildAppBar(),
         body: _buildBody(sliderViewObject),
-        bottomSheet: _bottomSheetSection(sliderViewObject),
+        bottomSheet: Container(
+          color: ColorManager.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed:() => Navigator.pushReplacementNamed(context, Routes.loginRoute),
+                  child: Text(
+                    AppStrings.skip,
+                    style: Theme.of(context).textTheme.labelSmall,
+                    textAlign: TextAlign.end,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: AppSize.size8,
+              ),
+              Container(
+                color: ColorManager.primaryColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(AppPadding.padding14),
+                      child: GestureDetector(
+                        onTap: _animateToPreviousSliderPage,
+                        child: _backArrowIcon(),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        for (int i = 0; i < sliderViewObject.numberOfSlides; i++)
+                          Padding(
+                            padding: EdgeInsets.all(AppPadding.padding14),
+                            child: sliderViewObject.currentSliderObjectIndex == i
+                                ? returnIcon(Icons.circle_outlined)
+                                : returnIcon(Icons.circle_rounded),
+                          ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(AppPadding.padding14),
+                      child: GestureDetector(
+                        onTap: _animateToNextSliderPage,
+                        child: SizedBox(
+                          width: AppSize.size20,
+                          height: AppSize.size20,
+                          child: Icon(Icons.arrow_forward_ios,
+                              color: ColorManager.white, size: AppSize.size20),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       );
     }
   }
@@ -82,91 +141,7 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 
-  Container _bottomSheetSection(SliderViewObject sliderViewObject) {
-    return Container(
-      color: ColorManager.white,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          _bottomSheetColFirstSection(),
-          SizedBox(
-            height: AppSize.size8,
-          ),
-          _bottomSheetColSecondSection(sliderViewObject)
-        ],
-      ),
-    );
-  }
 
-  Align _bottomSheetColFirstSection() {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: _textButtonOfBottomSheet(),
-    );
-  }
-
-  TextButton _textButtonOfBottomSheet() {
-    return TextButton(
-      onPressed: _navigateToLoginView,
-      child: _textButtonText(),
-    );
-  }
-
-  void _navigateToLoginView() =>
-      Navigator.pushReplacementNamed(context, Routes.loginRoute);
-
-  Text _textButtonText() {
-    return Text(
-      AppStrings.skip,
-      style: Theme.of(context).textTheme.labelSmall,
-      textAlign: TextAlign.end,
-    );
-  }
-
-  Container _bottomSheetColSecondSection(SliderViewObject sliderViewObject) {
-    return Container(
-      color: ColorManager.primaryColor,
-      child: _rowOfBottomSheetSecondSection(sliderViewObject),
-    );
-  }
-
-  Row _rowOfBottomSheetSecondSection(SliderViewObject sliderViewObject) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Padding(
-          padding: EdgeInsets.all(AppPadding.padding14),
-          child: GestureDetector(
-            onTap: _animateToPreviousSliderPage,
-            child: _backArrowIcon(),
-          ),
-        ),
-        Row(
-          children: [
-            for (int i = 0; i < sliderViewObject.numberOfSlides; i++)
-              Padding(
-                padding: EdgeInsets.all(AppPadding.padding14),
-                child: sliderViewObject.currentSliderObjectIndex == i
-                    ? returnIcon(Icons.circle_outlined)
-                    : returnIcon(Icons.circle_rounded),
-              ),
-          ],
-        ),
-        Padding(
-          padding: EdgeInsets.all(AppPadding.padding14),
-          child: GestureDetector(
-            onTap: _animateToNextSliderPage,
-            child: SizedBox(
-              width: AppSize.size20,
-              height: AppSize.size20,
-              child: Icon(Icons.arrow_forward_ios,
-                  color: ColorManager.white, size: AppSize.size20),
-            ),
-          ),
-        )
-      ],
-    );
-  }
 
   Icon returnIcon(IconData? iconData) {
     return Icon(

@@ -152,8 +152,8 @@ class _$LoginImpl with DiagnosticableTreeMixin implements _Login {
 
 abstract class _Login implements Login {
   factory _Login(
-      {required final String userName,
-      required final String password}) = _$LoginImpl;
+      { required final String userName,
+        required final String password}) = _$LoginImpl;
 
   @override
   String get userName;

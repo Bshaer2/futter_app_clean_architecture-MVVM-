@@ -10,7 +10,7 @@ part of 'app_api.dart';
 
 class _AppServiceClient implements AppServiceClient {
   _AppServiceClient(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://0688g.wiremockapi.cloud/';
+    baseUrl ??= 'https://0688g.wiremockapi.cloud';
   }
 
   final Dio _dio;
@@ -61,15 +61,18 @@ class _AppServiceClient implements AppServiceClient {
 
   String _combineBaseUrls(String dioBaseUrl, String? baseUrl) {
     if (baseUrl == null || baseUrl.trim().isEmpty) {
+      log('dio baseurl: $dioBaseUrl');
+
       return dioBaseUrl;
     }
 
     final url = Uri.parse(baseUrl);
 
     if (url.isAbsolute) {
+      log('url to string: $url.toString()');
       return url.toString();
     }
-
+    log(Uri.parse(dioBaseUrl).resolveUri(url).toString());
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }

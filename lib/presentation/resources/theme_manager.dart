@@ -65,6 +65,8 @@ TextTheme _textTheme() {
           fontSize: FontSize.size14, color: ColorManager.darkGrey),
       titleMedium: getRegularTextStyle(
           fontSize: FontSize.size14, color: ColorManager.lightGrey),
+      titleSmall: getRegularTextStyle(
+          fontSize: FontSize.size18, color: ColorManager.black),
       bodyLarge: getRegularTextStyle(color: ColorManager.grey),
       labelSmall: getRegularTextStyle(
           fontSize: FontSize.size16, color: ColorManager.primaryColor));

@@ -13,14 +13,17 @@ import 'package:tut_app/presentation/login/view_model/login_view_model.dart';
 
 import '../data/network/network_info.dart';
 
-GetIt instance = GetIt.instance();
+GetIt instance = GetIt.instance;
 
 Future<void> initAppModule() async {
   final SharedPreferences sharedPreferences =
       await SharedPreferences.getInstance();
+
   instance.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
+
   instance.registerLazySingleton<AppPreferences>(
       () => AppPreferences(instance<SharedPreferences>()));
+
   instance.registerLazySingleton<NetworkInfo>(
       () => NetworkInfoImpl(InternetConnectionChecker.createInstance()));
   instance.registerLazySingleton<DioFactory>(() => DioFactory(instance()));
@@ -35,6 +38,6 @@ Future<void> initAppModule() async {
 initLoginModule(){
   if(!GetIt.instance.isRegistered<LoginUseCase>()) {
     instance.registerFactory<LoginUseCase>(() => LoginUseCase(instance()));
-    instance.registerFactory<LoginViewModel>(() => LoginViewModel());
+    instance.registerFactory<LoginViewModel>(() => LoginViewModel(instance()));
   }
 }

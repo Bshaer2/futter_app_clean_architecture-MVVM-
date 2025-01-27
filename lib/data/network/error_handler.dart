@@ -156,7 +156,7 @@ class ResponseCode {
 class ResponseMessage {
   static const String success = AppStrings.success; // success with data
   static const String noContent =
-      AppStrings.success; // success with no data (no content)
+      AppStrings.noContent; // success with no data (no content)
   static const String badCertificate =
       AppStrings.badCertificateError; // failure, API rejected request
   static const String forbidden =

@@ -5,7 +5,7 @@ part 'freezed_data_classes.freezed.dart';
 
 @freezed
 class Login with _$Login {
-  factory Login({required
-  String userName, required String password}) = _Login;
+  factory Login({
+    required String  userName,  required String password}) = _Login;
 
 }

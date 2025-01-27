@@ -28,13 +28,28 @@ class AppStrings{
   static const String noInternetError = "no_internet_error";
 
   //login view
-  static const String userName = "Username";
+  static const String userName = "Username/Email";
   static const String password = "Password";
   static const String userNameError = "please enter your user name";
   static const String passwordError = "please enter your password";
   static const String login = "Login";
   static const String forgerPassword = "forget password";
   static const String register = "Not a member ? Sign up";
+
+  //state renderer type
+  static const String loading = "Loading...";
+  static const String retryAgain = "Retry again";
+  static const String ok = "Ok";
+  static const String emptyMessage = "Ok";
+
+  //state renderer animation name
+  static const String loadingAnimation= "loading";
+  static const String error = "error";
+  static const String empty = "empty";
+
+
+
+
 
 
 }

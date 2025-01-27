@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tut_app/app/dependency_injection.dart';
 import 'package:tut_app/domain/models/models.dart';
 import 'package:tut_app/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:tut_app/presentation/resources/colors_manager.dart';
 import 'package:tut_app/presentation/resources/strings_manager.dart';
 import 'package:tut_app/presentation/resources/values_manager.dart';
 
+import '../../../app/app_prefs.dart';
 import '../../resources/constants_manager.dart';
 import '../../resources/route_manager.dart';
 
@@ -20,8 +23,10 @@ class OnboardingView extends StatefulWidget {
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _sliderPageController = PageController();
   final OnboardingViewModel _viewModel = OnboardingViewModel();
+  final AppPreferences _appPreferences = instance<AppPreferences>();
 
   _bind() {
+    _appPreferences.setOnboardingScreenViewed();
     _viewModel.start();
   }
 
@@ -62,7 +67,8 @@ class _OnboardingViewState extends State<OnboardingView> {
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed:() => Navigator.pushReplacementNamed(context, Routes.loginRoute),
+                  onPressed: () => Navigator.pushReplacementNamed(
+                      context, Routes.loginRoute),
                   child: Text(
                     AppStrings.skip,
                     style: Theme.of(context).textTheme.labelSmall,
@@ -85,16 +91,16 @@ class _OnboardingViewState extends State<OnboardingView> {
                         child: _backArrowIcon(),
                       ),
                     ),
-                    Row(
-                      children: [
-                        for (int i = 0; i < sliderViewObject.numberOfSlides; i++)
-                          Padding(
-                            padding: EdgeInsets.all(AppPadding.padding14),
-                            child: sliderViewObject.currentSliderObjectIndex == i
-                                ? returnIcon(Icons.circle_outlined)
-                                : returnIcon(Icons.circle_rounded),
-                          ),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.all(AppPadding.padding14),
+                      child: SmoothPageIndicator(
+                        controller: _sliderPageController,
+                        count: sliderViewObject.numberOfSlides,
+                        effect: ExpandingDotsEffect(
+                          dotColor: ColorManager.lightPrimaryColor,
+                          activeDotColor: ColorManager.white,
+                        ),
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(AppPadding.padding14),
@@ -107,7 +113,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                               color: ColorManager.white, size: AppSize.size20),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               )
@@ -140,17 +146,6 @@ class _OnboardingViewState extends State<OnboardingView> {
       },
     );
   }
-
-
-
-  Icon returnIcon(IconData? iconData) {
-    return Icon(
-      iconData,
-      color: ColorManager.white,
-      size: AppSize.size12,
-    );
-  }
-
   Icon _backArrowIcon() {
     return Icon(Icons.arrow_back_ios_new,
         color: ColorManager.white, size: AppSize.size20);

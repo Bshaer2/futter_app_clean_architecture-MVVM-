@@ -46,6 +46,8 @@ dependencies:
   shared_preferences: ^2.3.5
   freezed_annotation: ^2.4.4
   get_it: ^8.0.3
+  smooth_page_indicator: ^1.2.0+3
+  lottie: ^3.3.1
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +82,10 @@ flutter:
     - assets/images/onboarding/onboarding_logo2.svg
     - assets/images/onboarding/onboarding_logo3.svg
     - assets/images/onboarding/onboarding_logo4.svg
+
+    - assets/json/loading.json
+    - assets/json/error.json
+    - assets/json/empty.json
   # An image asset n refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
